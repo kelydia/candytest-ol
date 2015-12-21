@@ -140,6 +140,14 @@ public class ExcelUtil {
 	 * 设定是否打印消息
 	 */
 	private boolean printMsg = PRINT_MSG;
+	/**
+	 * 设定是否开启Excel单元格类型统一读取方式，默认开启
+	 */
+	private boolean open_default_cell_type = true;
+	/**
+	 * 设定Excel单元格的类型，默认为Cell.CELL_TYPE_STRING，都按照字符类型来读取
+	 */
+	private int default_cell_type = Cell.CELL_TYPE_STRING;
 	
 	
 	//%%%%%%%%-------字段部分 结束----------%%%%%%%%%
@@ -361,7 +369,7 @@ public class ExcelUtil {
 	 * @throws IOException
 	 */
 	public void writeExcel_xlsx(List<Row> rowList, String dist_xlsPath) throws IOException {
-		writeExcel_xls(rowList, excelPath , dist_xlsPath);
+		writeExcel_xlsx(rowList, excelPath , dist_xlsPath);
 	}
 
 	/**
@@ -521,6 +529,9 @@ public class ExcelUtil {
 	 */
 	private String getCellValue(Cell cell) {
 		Object result = "";
+		if(open_default_cell_type){
+			cell.setCellType(default_cell_type);//全部设置为默认格式
+		}
 		if (cell != null) {
 			switch (cell.getCellType()) {
 			case Cell.CELL_TYPE_STRING:
