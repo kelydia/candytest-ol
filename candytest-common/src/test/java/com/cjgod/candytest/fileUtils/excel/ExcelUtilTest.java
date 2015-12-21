@@ -9,7 +9,7 @@ public class ExcelUtilTest {
 	public void testRead(){
 	    try {  
 	          
-	        ExcelUtil eu = new ExcelUtil();  
+	        ExcelRowUtil eu = new ExcelRowUtil();  
 	        eu.setExcelPath("D:\\mars-files\\2.xlsx");  
 	          
 	        System.out.println("=======测试Excel 默认 读取========");  
@@ -40,8 +40,8 @@ public class ExcelUtilTest {
 	@Test(enabled=true)
 	public void testMerge(){
 		try {
-			ExcelUtil eu1 = new ExcelUtil();//用来读取源xls
-			ExcelUtil eu2 = new ExcelUtil();//用来读取目标xls，用于演示合并结果
+			ExcelRowUtil eu1 = new ExcelRowUtil();//用来读取源xls
+			ExcelRowUtil eu2 = new ExcelRowUtil();//用来读取目标xls，用于演示合并结果
 			eu1.setExcelPath("D:\\mars-files\\2.xlsx");
 			eu2.setExcelPath("D:\\mars-files\\1.xlsx");
 			

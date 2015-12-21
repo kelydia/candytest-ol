@@ -24,7 +24,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @Version : 1.00
  * @Date    : 2014-10-29 上午12:40:44
  */
-public class ExcelUtil {
+public class ExcelRowUtil {
 	
 	//%%%%%%%%-------常量部分 开始----------%%%%%%%%%
 	/**
@@ -152,20 +152,25 @@ public class ExcelUtil {
 	
 	//%%%%%%%%-------字段部分 结束----------%%%%%%%%%
 	
-	public ExcelUtil(){
+	public ExcelRowUtil(){
 		
 	}
 	
-	public ExcelUtil(String excelPath){
+	public ExcelRowUtil(String excelPath){
 		this.excelPath = excelPath;
+	}
+	
+	public ExcelRowUtil(String excelPath,String selectedSheetName){
+		this.excelPath = excelPath;
+		this.selectedSheetName = selectedSheetName;
 	}
 	
 	/**
 	 * 还原设定（其实是重新new一个新的对象并返回）
 	 * @return
 	 */
-	public ExcelUtil RestoreSettings(){
-		ExcelUtil instance = new  ExcelUtil(this.excelPath);
+	public ExcelRowUtil RestoreSettings(){
+		ExcelRowUtil instance = new  ExcelRowUtil(this.excelPath);
 		return instance;
 	}
 	
@@ -518,7 +523,6 @@ public class ExcelUtil {
 		}
 		return rowList;
 	}
-
 	/***
 	 * 读取单元格的值
 	 * 

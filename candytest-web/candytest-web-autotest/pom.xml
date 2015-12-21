@@ -14,6 +14,12 @@
     <finalName>${project.artifactId}</finalName>
   </build>
     <dependencies>
+    	<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>candytest-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+   
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
